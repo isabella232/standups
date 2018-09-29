@@ -112,7 +112,7 @@ def import_():
         if request.form['secret'] != config['secret']:
             abort(403)
         user = request.form['user']
-        dump = json.loads(request.files["json"].read())
+        dump = json.loads(request.files["json"].read().decode('utf-8'))
         for entry in dump:
             db.insert({
                 'user': user,
