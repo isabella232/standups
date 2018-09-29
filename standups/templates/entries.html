@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  {% for entry in entries %} 
+  <div class="entry">
+    <p><a href="/entry?id={{entry.doc_id}}">#{{entry.doc_id}}</a> {{entry.user}} - {{entry.created}}</p>
+    <p>{{entry.content|safe}}</p>
+  </div>
+  {% endfor %}
+</body>
+</html>
