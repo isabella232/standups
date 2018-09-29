@@ -99,10 +99,10 @@ def record():
             return make_response(jsonify({ 'status': 'success', 'id': doc_id }), 200)
         return ('', 204)
     except:
-        e = sys.exc_info()[0] 
+        e = sys.exc_info()
         if request_wants_json() :
-            return make_response(jsonify({ 'status' : 'failure', 'error': e }), 400)
-        abort(400) 
+            return make_response(jsonify({ 'status' : 'failure', 'error': str(e) }), 400)
+        return (str(e), 400)
 
 
 @app.route('/import', methods=["GET", "POST"])
